@@ -31,14 +31,14 @@ class _CustomInputState extends State<CustomInput> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 40),
       child: TextField(
-        cursorColor: Colors.white, 
+        cursorColor: Theme.of(context).textTheme.subtitle1!.color!.withAlpha(200),
         cursorWidth: .5,
         keyboardType: this.widget.keyboardType,
         obscureText: this.hidePassword,
         decoration: InputDecoration(
           labelText: this.widget.title,
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          labelStyle: TextStyle(color: Colors.grey, letterSpacing: 1.5, fontSize: 18, fontWeight: FontWeight.w600),
+          labelStyle: TextStyle(color: Theme.of(context).textTheme.subtitle1!.color!.withAlpha(200), letterSpacing: 1.5, fontSize: 18, fontWeight: FontWeight.w600),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),

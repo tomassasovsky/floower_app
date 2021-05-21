@@ -1,3 +1,4 @@
+import 'package:floower_app/meta/widgets/auth_title.dart';
 import 'package:floower_app/meta/widgets/blue_button.dart';
 import 'package:flutter/material.dart';
 
@@ -14,38 +15,18 @@ class LoginPage extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: [
-            CurvedHeader(),
-            SafeArea(
-              child: ListView(
-                physics: BouncingScrollPhysics(),
-                children: [
-                  _Title(),
-                  _Form(),
-                  BlueButton(text: 'LOGIN', onPressed: () {}),
-                  _CreateAccount(),
-                ],
-              ),
+            LoginHeader(),
+            ListView(
+              physics: BouncingScrollPhysics(),
+              children: [
+                AuthTitle(title: ['hello', 'welcome back']),
+                _Form(),
+                BlueButton(text: 'LOGIN', onPressed: () {}),
+                _CreateAccount(),
+              ],
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _Title extends StatelessWidget {
-  final TextStyle titleStyle = TextStyle(fontSize: 36, color: Colors.white);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 40, top: 80),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('hello.', style: titleStyle),
-          Text('welcome back', style: titleStyle),
-        ],
       ),
     );
   }
@@ -57,7 +38,7 @@ class _Form extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          SizedBox(height: 80),
+          SizedBox(height: 100),
           CustomInput(title: 'USERNAME'),
           SizedBox(height: 60),
           CustomInput(title: 'PASSWORD', showButton: true, hideTextByDefault: true),
